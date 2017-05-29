@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var MyComponent = React.createClass({
+            getInitialState: function () {
+                return {
+                    liked: false
+                }
+            },
+            handleClick: function () {
+                this.setState({liked: !this.state.liked});
+            },
+            render: function () {
+                var text = this.state.liked ? "liked" : "haven\'t liked";
+                return(
+                    <p onClick={this.handleClick}>
+                        he {text} this way.                        
+                    </p>
+                )
+            }
+        })
+
+        ReactDOM.render(
+            <MyComponent></MyComponent>,
+            document.getElementById("example")
+        )
+    </script>
+</body>
+</html>
